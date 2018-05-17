@@ -1,0 +1,57 @@
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>搜索结果</title>
+</head>
+<body>
+  <p>以下为符合搜索条件的书籍:</p>
+  <body style="text-align:center;">
+  </br></br> 
+       
+       
+</br></br>
+<#list list as item> 
+${item.ISBN!}  ,${item.bookname!}，${item.bookauthor!},${item.bookcategoryID!}</br>
+</#list> 
+ 
+ </br></br>
+  <input id="BISBN" type="text" style="width:150px;" placeholder="请输入要借阅书籍的ISBN"/>
+</br> </br>
+  <input id="borrow" onclick="borrow()" type="button" style="width:100px;" value="借阅" />
+</br></br>
+   <input id="RISBN" type="text" style="width:150px;" placeholder="请输入要归还书籍的ISBN"/>
+</br> </br>
+  <input id="returnbook" onclick="returnbook()" type="button" style="width:100px;" value="归还" />
+
+  <script>
+  	function returnbook(){
+  		var getResultUrl;
+  		var RISBN = document.getElementById("RISBN").value;
+  		getResultUrl = '/return?RISBN='+RISBN;
+ 	 		
+  		if(getResultUrl){
+  			window.location.href=getResultUrl;
+  		}else{
+  			alert('归还失败');
+  		}
+  	}
+  </script>
+  <script>
+  	function borrow(){
+  		var getResultUrl;
+  		var BISBN = document.getElementById("BISBN").value;
+  		getResultUrl = '/borrow?BISBN='+BISBN;
+ 	 		
+  		if(getResultUrl){
+  			window.location.href=getResultUrl;
+  		}else{
+  			alert('借阅失败');
+  		}
+  	}
+  </script>
+  
+
+</br> </br>
+  <a href="javascript:history.back();">返回</a>
+</body>
+</html>

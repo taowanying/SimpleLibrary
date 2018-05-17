@@ -1,0 +1,13 @@
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>注销书籍结果</title>
+</head>
+<body>
+操作结果:${deleteresult}<#if deleteresult =="OK">注销书籍成功！该书籍数量减一 </#if>
+<#if deleteresult =="error">注销书籍失败！请输入完整的待注销书籍信息！</#if>
+<#if deleteresult =="ISBNerror">注销书籍失败！请输入正确的带注销书籍ISBN！</#if>
+<#if deleteresult =="amounterror">注销书籍失败！该书籍均已注销！</#if>
+  <a href="javascript:history.back();">返回</a>
+</body>
+</html>

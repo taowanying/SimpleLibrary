@@ -1,0 +1,9 @@
+GET /				onlineLibrarySystem.IndexControllerImpl
+GET	/favicon.ico	onlineLibrarySystem.FaviconControllerImpl
+*	/search			onlineLibrarySystem.SearchControllerImpl
+*	/borrow			onlineLibrarySystem.BorrowControllerImpl
+*	/return			onlineLibrarySystem.ReturnControllerImpl
+*	/manage			onlineLibrarySystem.ManageControllerImpl
+*	/addbook		onlineLibrarySystem.AddbookControllerImpl
+*	/deletebook	    onlineLibrarySystem.DeletebookControllerImpl
+*	/updatebook	    onlineLibrarySystem.UpdatebookControllerImpl

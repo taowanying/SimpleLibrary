@@ -1,0 +1,13 @@
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>新增书籍结果</title>
+</head>
+<body>
+操作结果:${addresult}<#if addresult =="OK">新增书籍成功！</#if>
+<#if addresult =="error">新增书籍失败！请输入完整的书籍信息！</#if>
+<#if addresult =="ISBNerror">新增书籍失败！该ISBN已存在！</#if>
+ 
+  <a href="javascript:history.back();">返回</a>
+</body>
+</html>

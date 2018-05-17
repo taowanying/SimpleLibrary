@@ -1,0 +1,73 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <title>图书馆系统</title>
+</head>
+<p>请输入相应条件查找书籍:</p>
+</br></br>
+<body style="text-align:center;"> 
+  <input id="SISBN" type="text" style="width:150px;" placeholder="请输入要查找书籍的ISBN"/>
+</br> </br>
+  <input id="Sbookname" type="text" style="width:150px;"  placeholder="请输入要查找书籍的名称"/>
+</br> </br>
+  <input id="Sbookauthor" type="text" style="width:150px;"  placeholder="请输入要查找书籍的作者"/>
+</br> </br>
+  <input id="SbookcategoryID" type="text" style="width:150px;"  placeholder="请输入要查找书籍的类别ID"/>
+</br> </br>
+  <input id="search" onclick="search()" type="button" style="width:100px;" value="搜索" />
+</br></br>
+  <input id="manage" onclick="manage()" type="button" style="width:100px;" value="管理员入口" />
+</br></br>
+
+===================================
+<form action="/search" method="get">
+<input name="SISBN" type="text" style="width:150px;" placeholder="请输入要查找书籍的ISBN"/>
+</br> </br>
+  <input name="Sbookname" type="text" style="width:150px;"  placeholder="请输入要查找书籍的名称"/>
+</br> </br>
+  <input name="Sbookauthor" type="text" style="width:150px;"  placeholder="请输入要查找书籍的作者"/>
+</br> </br>
+  <input name="SbookcategoryID" type="text" style="width:150px;"  placeholder="请输入要查找书籍的类别ID"/>
+</br> </br>
+  <input  type="submit" style="width:100px;" value="搜索" />
+</br></br>
+  <input name="manage" onclick="manage()" type="button" style="width:100px;" value="管理员入口" />
+</br></br>
+</form>
+
+
+  
+  <script>
+  	function search(){
+  		var getResultUrl;
+  		var SISBN = document.getElementById("SISBN").value;
+  		var Sbookname = document.getElementById("Sbookname").value;
+  		var Sbookauthor = document.getElementById("Sbookauthor").value;
+  		var SbookcategoryID = document.getElementById("SbookcategoryID").value;
+  		
+  	
+  		getResultUrl = '/search?SISBN='+SISBN+'&Sbookname='+Sbookname+'&Sbookauthor='+Sbookauthor+'&SbookcategoryID='+SbookcategoryID;
+  		
+  	 		
+  		if(getResultUrl){
+  			window.location.href=getResultUrl;
+  		}else{
+  			alert('搜索失败，请输入搜索条件');
+  		}
+  	}
+  </script>
+   <script>
+  	function manage(){
+  		var getResultUrl;
+	
+  		getResultUrl = '/manage?';
+  			 		
+  		if(getResultUrl){
+  			window.location.href=getResultUrl;
+  		}else{
+  			alert('进入失败');
+  		}
+  	}
+  </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <title>管理员操作界面</title>
+</head>
+<p>新增图书:</p>
+</br></br>
+<body style="text-align:center;"> 
+  <input id="AISBN" type="text" style="width:150px;" placeholder="请输入新增书籍的ISBN"/>
+</br> </br>
+  <input id="Abookname" type="text" style="width:150px;"  placeholder="请输入新增书籍的名称"/>
+</br> </br>
+  <input id="Abookauthor" type="text" style="width:150px;"  placeholder="请输入新增书籍的作者"/>
+</br> </br>
+  <input id="AbookcategoryID" type="text" style="width:150px;"  placeholder="请输入新增书籍的类别"/>
+</br> </br>
+  <input id="Aamount" type="text" style="width:150px;" placeholder="请输入新增书籍的数量"/>
+</br> </br>
+  <input id="addbook" onclick="addbook()" type="button" style="width:100px;" value="添加" />
+</br></br>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<p>注销图书:</p>
+  <input id="DISBN" type="text" style="width:150px;" placeholder="请输入要注销书籍的ISBN"/>
+</br> </br>
+
+  <input id="deletebook" onclick="deletebook()" type="button" style="width:100px;" value="注销" />
+</br></br>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<p>更新图书信息:</p>
+  <input id="OISBN" type="text" style="width:150px;" placeholder="请输入要修改书籍的ISBN"/>
+</br> </br>
+  <input id="UISBN" type="text" style="width:150px;" placeholder="请输入修改后书籍的ISBN"/>
+</br> </br>
+  <input id="Ubookname" type="text" style="width:150px;"  placeholder="请输入修改后书籍的名称"/>
+</br> </br>
+  <input id="Ubookauthor" type="text" style="width:150px;"  placeholder="请输入修改后书籍的作者"/>
+</br> </br>
+  <input id="UbookcategoryID" type="text" style="width:150px;"  placeholder="请输入修改后书籍的类别"/>
+</br> </br>
+  <input id="Uamount" type="text" style="width:150px;" placeholder="请输入修改后书籍的数量"/>
+</br> </br>
+  <input id="updatebook" onclick="updatebook()" type="button" style="width:100px;" value="更改" />
+</br></br>
+  
+  <script>
+  	function addbook(){
+  		var getResultUrl;
+  		var AISBN = document.getElementById("AISBN").value;
+  		var Abookname = document.getElementById("Abookname").value;
+  		var Abookauthor = document.getElementById("Abookauthor").value;
+  		var AbookcategoryID = document.getElementById("AbookcategoryID").value;
+  		var Aamount = document.getElementById("Aamount").value;
+  	
+  		getResultUrl = '/addbook?AISBN='+AISBN+'&Abookname='+Abookname+'&Abookauthor='+Abookauthor+'&AbookcategoryID='+AbookcategoryID+'&Aamount='+Aamount;
+  		
+  	 		
+  		if(getResultUrl){
+  			window.location.href=getResultUrl;
+  		}else{
+  			alert('新增书籍失败');
+  		}
+  	}
+  </script>
+  <script>
+  	function deletebook(){
+  		var getResultUrl;
+	
+  		getResultUrl = '/deletebook?DISBN='+DISBN;
+  			 		
+  		if(getResultUrl){
+  			window.location.href=getResultUrl;
+  		}else{
+  			alert('注销书籍失败');
+  		}
+  	}
+  </script>
+   <script>
+  	function updatebook(){
+  		var getResultUrl;
+  		var OISBN = document.getElementById("OISBN").value;
+  		var UISBN = document.getElementById("UISBN").value;
+  		var Ubookname = document.getElementById("Ubookname").value;
+  		var Ubookauthor = document.getElementById("Ubookauthor").value;
+  		var UbookcategoryID = document.getElementById("UbookcategoryID").value;
+  		var Uamount = document.getElementById("Uamount").value;
+  	
+  		getResultUrl = '/updatebook?OISBN='+OISBN+'&UISBN='+UISBN+'&Ubookname='+Ubookname+'&Ubookauthor='+Ubookauthor+'&UbookcategoryID='+UbookcategoryID+'&Uamount='+Uamount;
+  			
+  		if(getResultUrl){
+  			window.location.href=getResultUrl;
+  		}else{
+  			alert('修改书籍失败');
+  		}
+  	}
+  </script>
+    <a href="javascript:history.back();">返回</a>
+</body>
+</html>
